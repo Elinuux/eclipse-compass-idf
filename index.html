@@ -8,6 +8,7 @@
 <title>Eclipse Compass IDF</title>
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./spots.css">
 </head>
 <body>
 <main class="app">
@@ -60,6 +61,8 @@
     <div id="phase" class="phase">Phase : —</div>
   </section>
 
+  <button id="spotsBtn" class="spotsPrimary">🗺️ MEILLEURS SPOTS OFFICIELS</button>
+
   <button id="gps" class="primary">📍 AUTORISER MA POSITION</button>
   <button id="manualToggle" class="secondary">Entrer ma position manuellement</button>
 
@@ -94,5 +97,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
 <script src="./app.js"></script>
+<script src="./spots.js"></script>
 </body>
 </html>
