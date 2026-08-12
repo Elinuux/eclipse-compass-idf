@@ -1,0 +1,9 @@
+{
+  "name":"Eclipse Compass IDF",
+  "short_name":"Eclipse Compass",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#050817",
+  "theme_color":"#050817",
+  "orientation":"portrait-primary"
+}
