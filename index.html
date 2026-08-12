@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050817">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Eclipse Compass IDF</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div class="brand">◐ Eclipse Compass IDF</div>
+    <button id="sourcesBtn" class="chip">Sources</button>
+  </header>
+
+  <div id="notice" class="notice"></div>
+  <div id="status" class="status">Prêt à demander ta position</div>
+
+  <section class="hero">
+    <div id="clock" class="clock">--:--:--</div>
+    <div class="tz">Europe/Paris • CEST</div>
+    <div id="pct" class="pct">—</div>
+    <div class="label">Obscuration actuelle</div>
+    <div id="peak" class="peak">Maximum : —</div>
+    <div id="countdown" class="countdown">—</div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <div class="k">☀️ Indice ciel dégagé*</div>
+      <div id="clear" class="v">—</div>
+      <div id="clearSub" class="sub">En attente du GPS</div>
+    </article>
+    <article class="card">
+      <div class="k">☁️ Nuages au maximum</div>
+      <div id="cloud" class="v">—</div>
+      <div id="layers" class="sub">Bas — • Moyens — • Hauts —</div>
+    </article>
+  </section>
+
+  <section class="compassWrap">
+    <div id="compass" class="compass">
+      <div class="ring"></div>
+      <div class="dir n">N</div><div class="dir e">E</div><div class="dir s">S</div><div class="dir w">O</div>
+      <div id="arrow" class="arrow"></div>
+      <div class="center">
+        <div id="turn" class="turn">Position requise</div>
+        <div id="heading" class="heading">Boussole : —</div>
+      </div>
+    </div>
+  </section>
+  <div id="sunline" class="sunline">Soleil : azimut — • hauteur —</div>
+
+  <section class="card timeline">
+    <div class="times"><span id="begin">Début —</span><span id="maxTime">MAX —</span><span id="end">Fin —</span></div>
+    <div class="track"><div id="fill" class="fill"></div><div id="dot" class="dot"></div></div>
+    <div id="phase" class="phase">Phase : —</div>
+  </section>
+
+  <button id="gps" class="primary">📍 AUTORISER MA POSITION</button>
+  <button id="manualToggle" class="secondary">Entrer ma position manuellement</button>
+
+  <section id="manualBox" class="manual card">
+    <div class="manualGrid">
+      <input id="lat" inputmode="decimal" placeholder="Latitude">
+      <input id="lon" inputmode="decimal" placeholder="Longitude">
+    </div>
+    <button id="manualUse" class="secondary">UTILISER CES COORDONNÉES</button>
+    <button id="parisTest" class="secondary">TESTER AVEC PARIS</button>
+  </section>
+
+  <section class="card loc">
+    <div id="locName" class="locName">Aucune position</div>
+    <div id="locSub" class="locSub">GPS : —</div>
+  </section>
+
+  <div class="actions">
+    <button id="detailsBtn" class="smallBtn">Mon éclipse</button>
+    <button id="refreshBtn" class="smallBtn">Actualiser</button>
+  </div>
+
+  <div class="safety"><strong>⚠️ Sécurité :</strong> ne regarde jamais le Soleil sans lunettes d’éclipse conformes ISO 12312‑2.</div>
+</main>
+
+<div id="modal" class="modal">
+  <div class="sheet">
+    <div class="sheetHead"><div id="sheetTitle" class="sheetTitle">Détails</div><button id="closeBtn" class="close">✕</button></div>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
