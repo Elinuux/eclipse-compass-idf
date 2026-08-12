@@ -33,7 +33,7 @@
     <article class="card">
       <div class="k">☀️ Indice ciel dégagé*</div>
       <div id="clear" class="v">—</div>
-      <div id="clearSub" class="sub">En attente du GPS</div>
+      <div id="clearSub" class="sub">En attente de la position</div>
     </article>
     <article class="card">
       <div class="k">☁️ Nuages au maximum</div>
@@ -64,21 +64,23 @@
   <button id="spotsBtn" class="spotsPrimary">🗺️ MEILLEURS SPOTS OFFICIELS</button>
 
   <button id="gps" class="primary">📍 AUTORISER MA POSITION</button>
-  <button id="manualToggle" class="secondary">Entrer ma position manuellement</button>
+  <button id="manualToggle" class="secondary">🔎 Rechercher une adresse, une ville ou un code postal</button>
 
   <section id="manualBox" class="manual card">
-    <div class="manualGrid">
-      <input id="lat" inputmode="decimal" placeholder="Latitude">
-      <input id="lon" inputmode="decimal" placeholder="Longitude">
+    <div class="addressSearchRow">
+      <input id="addressQuery" autocomplete="street-address" placeholder="Ex. Thiais, 94320, 12 rue...">
+      <button id="addressSearchBtn" class="addressSearchBtn" type="button">Rechercher</button>
     </div>
-    <button id="manualUse" class="secondary">UTILISER CES COORDONNÉES</button>
-    <button id="parisTest" class="secondary">TESTER AVEC PARIS</button>
+    <div id="addressResults" class="addressResults"></div>
   </section>
 
   <section class="card loc">
+    <div class="k" id="activePositionType">Position active</div>
     <div id="locName" class="locName">Aucune position</div>
-    <div id="locSub" class="locSub">GPS : —</div>
+    <div id="locSub" class="locSub">Position : —</div>
   </section>
+
+  <button id="returnGpsBtn" class="returnGpsBtn" hidden>↩️ REVENIR À MA POSITION GPS</button>
 
   <div class="actions">
     <button id="detailsBtn" class="smallBtn">Mon éclipse</button>
