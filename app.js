@@ -153,8 +153,8 @@ function tick(){
 }
 function openSheet(title,html){$("sheetTitle").textContent=title;$("sheetBody").innerHTML=html;$("modal").classList.add("open")}
 function details(){
- const t=times(),max=Number.isFinite(state.eclipse?.obscuration)?state.eclipse.obscuration*100:null;
- const rows=[["Position active",state.activeLabel||state.lat===null?"—":`${state.lat.toFixed(6)}, ${state.lon.toFixed(6)}`],["Type",state.activeSource?sourceLabel(state.activeSource):"—"],["Début",t.begin?fmtClock.format(t.begin):"—"],["Maximum",t.peak?fmtClock.format(t.peak):"—"],["Fin",t.end?fmtClock.format(t.end):"—"],["Obscuration max",fmtPct(max)],["Azimut actuel",state.sun?fmtDeg(state.sun.az):"—"],["Hauteur actuelle",state.sun?fmtDeg(state.sun.alt):"—"]];
+ const t=times(),max=Number.isFinite(state.eclipse?.obscuration)?state.eclipse.obscuration*100:null;const activePosition=state.activeLabel||(state.lat===null?"—":`${state.lat.toFixed(6)}, ${state.lon.toFixed(6)}`);
+ const rows=[["Position active",activePosition],["Type",state.activeSource?sourceLabel(state.activeSource):"—"],["Début",t.begin?fmtClock.format(t.begin):"—"],["Maximum",t.peak?fmtClock.format(t.peak):"—"],["Fin",t.end?fmtClock.format(t.end):"—"],["Obscuration max",fmtPct(max)],["Azimut actuel",state.sun?fmtDeg(state.sun.az):"—"],["Hauteur actuelle",state.sun?fmtDeg(state.sun.alt):"—"]];
  openSheet("Mon éclipse",rows.map(r=>`<div class="row"><span>${r[0]}</span><span>${r[1]}</span></div>`).join("")+'<div class="source">Quand tu sélectionnes une adresse ou un spot, tous les calculs affichés utilisent cette position. Si ton GPS a été autorisé, le bouton « Revenir à ma position GPS » restaure instantanément ta position réelle.</div>');
 }
 function sources(){
